@@ -7,7 +7,7 @@
     }
 
     // URL para la solicitud PUT
-    $url = 'http://localhost:3002/productos/' . $id_original;
+    $url = 'http://productos:3002/productos/' . $id_original;
 
     // Datos que se enviarán en la solicitud PUT
     $data = array(
