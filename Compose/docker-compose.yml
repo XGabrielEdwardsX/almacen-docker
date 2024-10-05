@@ -1,0 +1,62 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: db
+    ports:
+      - "32000:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+  usuarios:
+    build: ./microservicios/usuarios
+    container_name: usuarios
+    ports:
+      - "3001:3001"
+    environment:
+      - DB_NAME=usuariosDB
+      - DB_USER=root
+      - DB_PASS=password
+      - DB_HOST=db
+    links:
+      - db
+
+  productos:
+    build: ./microservicios/productos
+    container_name: productos
+    ports:
+      - "3002:3002"
+    environment:
+      - DB_NAME=productosDB
+      - DB_USER=root
+      - DB_PASS=password
+      - DB_HOST=db
+    links:
+      - db
+
+  ordenes:
+    build: ./microservicios/ordenes
+    container_name: ordenes
+    ports:
+      - "3003:3003"
+    environment:
+      - DB_NAME=ordenesDB
+      - DB_USER=root
+      - DB_PASS=password
+      - DB_HOST=db
+    links:
+      - db
+      - usuarios
+      - productos
+
+  web:
+    build: ./web
+    container_name: web
+    ports:
+      - "8080:80"
+    links:
+      - usuarios
+      - productos
+      - ordenes
