@@ -7,7 +7,7 @@ services:
     ports:
       - "32000:3306"
     environment:
-      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=root
     volumes:
       - ./db:/docker-entrypoint-initdb.d
   usuarios:
@@ -18,7 +18,7 @@ services:
     environment:
       - DB_NAME=usuariosDB
       - DB_USER=root
-      - DB_PASS=password
+      - DB_PASS=root
       - DB_HOST=db
     links:
       - db
@@ -31,7 +31,7 @@ services:
     environment:
       - DB_NAME=productosDB
       - DB_USER=root
-      - DB_PASS=password
+      - DB_PASS=root
       - DB_HOST=db
     links:
       - db
@@ -44,7 +44,7 @@ services:
     environment:
       - DB_NAME=ordenesDB
       - DB_USER=root
-      - DB_PASS=password
+      - DB_PASS=root
       - DB_HOST=db
     links:
       - db
