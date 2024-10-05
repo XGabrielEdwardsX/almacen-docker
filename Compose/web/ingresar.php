@@ -23,7 +23,6 @@
             header("Location:admin.php");
         } 
         else { 
-            echo "usuario";
             header("Location:usuario.php");
         } 
     }
