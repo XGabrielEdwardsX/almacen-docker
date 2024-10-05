@@ -9,7 +9,7 @@
     }
 
     // URL de la solicitud DELETE, incluyendo el ID del producto
-    $url = 'http://localhost:3002/productos/' . $id;
+    $url = 'http://productos:3002/productos/' . $id;
 
     // Inicializar cURL
     $ch = curl_init();
