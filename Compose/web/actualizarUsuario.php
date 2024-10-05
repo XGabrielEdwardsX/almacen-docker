@@ -5,7 +5,7 @@
     $password = $_POST["password"];
 
     // URL de la solicitud PUT (usamos el usuario_original para identificar al usuario)
-    $url = 'http://localhost:3001/usuarios/' . $usuario;
+    $url = 'http://usuarios:3001/usuarios/' . $usuario;
 
     // Datos que se enviarán en la solicitud PUT
     $data = array(
