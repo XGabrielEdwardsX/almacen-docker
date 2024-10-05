@@ -8,7 +8,7 @@
     }
 
     // URL de la API de eliminación
-    $url = 'http://localhost:3001/usuarios/' . urlencode($usuario);
+    $url = 'http://usuarios:3001/usuarios/' . urlencode($usuario);
 
     // Inicializar cURL
     $ch = curl_init();
