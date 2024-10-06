@@ -3,17 +3,22 @@ $usuario = $_POST['usuario'];
 
 $items = array();
 
-// **Inicio de la modificación: Reemplazo del foreach**
-$items = array_values(array_filter(array_map(function($id, $cantidad) {
-    return ($cantidad > 0) ? ['id' => $id, 'cantidad' => $cantidad] : null;
-}, array_keys($_POST['cantidad']), $_POST['cantidad'])));
-// **Fin de la modificación**
+// Recorrer los valores de cantidad enviados por el formulario
+foreach ($_POST['cantidad'] as $id => $cantidad) {
+    if ($cantidad>0){
+    $item['id'] = $id;
+    $item["cantidad"] = $cantidad;
+    array_push($items, $item);
+}
 
-$orden['usuario'] = $usuario;
-$orden['items'] = $items;
+}
+
+$orden['usuario']=$usuario;
+$orden['items']=$items;
 
 $json = json_encode($orden);
 //echo $json;
+
 
 $url = 'http://ordenes:3003/ordenes';
 
@@ -31,12 +36,10 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($ch);
 
 // Manejar la respuesta
-if ($response === false){
+if ($response===false){
     header("Location:index.html");
 }
 // Cerrar la conexión cURL
 curl_close($ch);
 
 header("Location:usuario.php");
-
-?>
