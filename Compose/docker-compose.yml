@@ -10,9 +10,7 @@ services:
     volumes:
       - ./db:/docker-entrypoint-initdb.d
   usuarios:
-    build:
-      context: ./microservicios/usuarios
-      dockerfile: Dockerfile
+    build: ./microservicios/usuarios
     container_name: usuarios
     ports:
       - "3001:3001"
@@ -22,9 +20,8 @@ services:
       - db
 
   productos:
-    build:
-      context: ./microservicios/productos
-      dockerfile: Dockerfile
+    build: ./microservicios/productos
+
     container_name: productos
     ports:
       - "3002:3002"
@@ -34,9 +31,7 @@ services:
       - db
 
   ordenes:
-    build:
-      context: ./microservicios/ordenes
-      dockerfile: Dockerfile
+    build: ./microservicios/ordenes
     container_name: ordenes
     ports:
       - "3003:3003"
