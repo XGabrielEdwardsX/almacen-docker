@@ -33,3 +33,4 @@ CREATE TABLE IF NOT EXISTS productos (
 );
 USE usuariosDB;
 INSERT INTO usuarios (nombre, email, usuario, password) VALUES ('Admin', 'admin@admin.com', 'admin', 'admin');
+INSERT INTO usuarios (nombre, email, usuario, password) VALUES ('Gabriel Edwards', 'Gabriel@gmail.com', 'Edwards', '123');
