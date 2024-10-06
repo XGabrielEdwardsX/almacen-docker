@@ -31,4 +31,5 @@ CREATE TABLE IF NOT EXISTS productos (
     precio FLOAT,
     inventario INT
 );
-INSERT INTO usuarios (nombre, email, usuario, password) VALUES ('Admin', 'admin@admin.com', 'admin', '123');
+USE usuariosDB;
+INSERT INTO usuarios (nombre, email, usuario, password) VALUES ('Admin', 'admin@admin.com', 'admin', 'admin');
