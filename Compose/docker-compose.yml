@@ -34,7 +34,7 @@ services:
       - db
 
   ordenes:
-     build:
+    build:
       context: ./microservicios/ordenes
       dockerfile: Dockerfile
     container_name: ordenes
